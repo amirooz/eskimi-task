@@ -31,11 +31,11 @@ $ composer install
 ```
 $ composer update
 ```
-** To get node modules**
+**To get node modules**
 ```
 $ npm install
 ```
-** To generate .sass/.js into browser readable format**
+**To generate .sass/.js into browser readable format**
 ```
 $ npm run dev
 ```
