@@ -28,7 +28,7 @@
                         <input type="hidden" name="progress" id="progress" value="0" />
 
                         <label for="title">Title</label>
-                        <input id="title" name="title" type="text" maxlength="255" class="form-control" autocomplete="off" required />
+                        <input id="title" name="title" type="text" placeholder="Enter a name..." maxlength="255" class="form-control" autocomplete="off" required />
                     </div>
 
                     <div class="form-group">
@@ -42,7 +42,7 @@
 
                     <div class="form-group">
                         <label for="points">Points</label>
-                        <input id="points" name="points" type="text" value="0" maxlength="2" class="form-control" autocomplete="off" required />
+                        <input id="points" name="points" type="text" value="" placeholder="Place an integer value 1-10" maxlength="2" class="form-control" autocomplete="off" required />
                     </div>
 
                     <div class="form-group">
@@ -88,14 +88,7 @@
                     <ul class="list-group">
                         @foreach ($tasks as $task)
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                {{ $task->title }}
                                 <span class="badge badge-pill">
-                                    Points: {{ $task->progress }} / {{ $task->points }} |
-                                    <a href="{{ route('tasks.show', $task->id) }}" title="View the task"><i class="fa fa-eye fa-lg" aria-hidden="true"></i></a> |
-                                    <a href="{{ route('tasks.edit', $task->id) }}" title="Edit the task"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></a>
-
-                                </span>
-                                <span>
                                     <form method="POST" action="{{ route('tasks.update', $task->id) }}" >
                                         @method('PATCH')
                                         @csrf
@@ -109,19 +102,21 @@
                                         <button type="submit" title="Mark as complete" ><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
                                     </form>
                                 </span>
+                                <span class="pull-left">
+                                    {{ $task->title }}
+                                </span>
+                                <span class="badge badge-pill">
+                                    Points: {{ $task->progress }} / {{ $task->points }} |
+                                    <a href="{{ route('tasks.show', $task->id) }}" title="View the task"><i class="fa fa-eye fa-lg" aria-hidden="true"></i></a> |
+                                    <a href="{{ route('tasks.edit', $task->id) }}" title="Edit the task"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></a>
+                                </span>
                             </li>
                         @endforeach
                     </ul>
                     @else
                         <strong> No task found! </strong>
                     @endif
-
-                    <div class="panel-heading pagination">
-                        {!! $page->links() !!}
-                    </div>
                 </div>
-
-
             </div>
         </div>
     </div>

@@ -1,18 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<?php
-function debug($arg)
-{
-    echo '<pre>';
-    print_r($arg);
-    echo '</pre>';
-    exit;
-}
- ?>
 <div class="container">
     <div class="row ">
-        @if($tasks)<?php //debug($tasks); ?>
+        @if($tasks)
             @foreach ($tasks as $k => $data)
                 <div class="col-md-4 mb-30">
                     <div class="card">
@@ -86,7 +77,7 @@ function debug($arg)
                 @endforeach
 
         @else
-            <h2>Nobody likes an empty dashboard...</h2>
+            <h2>Nobody likes an empty dashboard... <a class="btn btn-primary" href="{{ route('tasks.index')}}"> Create Task</a></h2>
         @endif
     </div>
 </div>

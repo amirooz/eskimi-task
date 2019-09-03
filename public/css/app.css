@@ -10657,6 +10657,7 @@ a.text-dark:focus {
 }
 
 .task-group {
-    display: block;
-    list-style: circle;
+  display: block;
+  list-style: circle;
 }
+

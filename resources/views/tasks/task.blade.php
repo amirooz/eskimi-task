@@ -24,7 +24,7 @@
                             <input type="hidden" name="is_done" id="is_done" value="1"/>
                         @endif
                         <label for="title">Title</label>
-                        <input id="title" name="title" type="text" value="" maxlength="255" class="form-control" autocomplete="off" autofocus required />
+                        <input id="title" name="title" type="text" value="" placeholder="Enter a name..." maxlength="255" class="form-control" autocomplete="off" autofocus required />
                     </div>
 
                     <div class="form-group">
@@ -39,7 +39,7 @@
 
                     <div class="form-group">
                         <label for="points">Points</label>
-                        <input id="points" name="points" type="text" value="0" maxlength="2" class="form-control" autocomplete="off" required />
+                        <input id="points" name="points" type="text" value="" placeholder="Place an integer value 1-10" maxlength="2" class="form-control" autocomplete="off" required />
                     </div>
 
                     @if($task->is_done == 0)

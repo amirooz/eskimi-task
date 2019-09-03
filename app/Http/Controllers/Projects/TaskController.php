@@ -11,6 +11,7 @@ use App\Http\Controllers\Projects\GuzzleHttpController;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\TaskRequest;
 use GuzzleHttp\Client;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class TaskController extends Controller
 {
@@ -38,9 +39,8 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = $this->task->get();
-        $page = $this->task->paginate(5);
         $yesNo = array_prepend(config('taskarray.yesNo'),'-Select-','');
-        return view('tasks.tasks',['users' => $this->users, 'tasks' => $tasks, 'yesNo' => $yesNo, 'page' => $page]);
+        return view('tasks.tasks',['users' => $this->users, 'tasks' => $tasks, 'yesNo' => $yesNo ]);
     }
 
     /**

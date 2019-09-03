@@ -38,7 +38,7 @@ trait Traits
         return  $this->model->where($attributes);
     }
 
-    
+
 
   	/**
   	 * Create a new model.

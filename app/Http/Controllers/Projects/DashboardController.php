@@ -163,20 +163,8 @@ class DashboardController extends Controller
         }
 
         $tasks = json_decode(json_encode($tasks), TRUE);
-        // $this->debug($tasks);
 
         return view('tasks.dashboard',['tasks' => $tasks, 'users' => $this->users ]);
     }
-
-    public function debug($arg)
-    {
-        echo '<pre>';
-        // $arg = json_decode(json_encode($arg), TRUE);
-        print_r($arg);
-        echo '</pre>';
-        exit;
-    }
-
-
 
 }
