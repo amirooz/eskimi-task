@@ -27,6 +27,18 @@ $ mv .env.example .env
 ```
 $ composer install
 ```
+**If missing any packages**
+```
+$ composer update
+```
+** To get node modules**
+```
+$ npm install
+```
+** To generate .sass/.js into browser readable format**
+```
+$ npm run dev
+```
 ```
 $ php artisan migrate
 ```
