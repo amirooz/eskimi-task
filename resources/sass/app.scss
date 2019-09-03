@@ -1,0 +1,19 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.card-new-task, .mb-30 {
+  margin-bottom: 30px;
+}
+
+.pagination {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top: 20px;
+}
