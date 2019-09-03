@@ -10,7 +10,6 @@ A simple task management app. Built a task management application using laravel 
     <li>Use Traits</li>
     <li>Repository design pattern</li>
     <li>Single responsibility</li>
-    <li>Unit testing</li>
 </ul>
 
 ## Installation and use
