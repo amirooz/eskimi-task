@@ -52,6 +52,13 @@ $ php artisan serve
 ```
 **  http://localhost:8000 **
 
+**Unit Test**
+I have used sqlite in memory database. All configuration for unit testing made in the phpunit.xml. and .env.testing files. To create sqlite databse run
+
+```
+$ touch database.sqlite
+```
+
 ## Screenshots
 <img src="public/screenshots/1.png" alt="">
 <img src="public/screenshots/2.png" alt="">
