@@ -25,7 +25,7 @@ class TaskRequest extends FormRequest
     {
         return [
             'user_id'      => 'bail|required',
-            'title'        => 'bail|required',
+            'title'        => 'bail|required|min:4',
             'points'       => 'bail|required',
             'is_done'      => 'bail|required'
         ];
