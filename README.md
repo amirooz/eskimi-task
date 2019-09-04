@@ -10,19 +10,24 @@ A simple task management app. Built a task management application using laravel 
     <li>Use Traits</li>
     <li>Repository design pattern</li>
     <li>Single responsibility</li>
+    <li>PhpUnit testing</li>
 </ul>
 
 ## Installation and use
 
 ```
-$ git clone https://github.com/amirphp7/taskmanagement.git
+$ git clone git@github.com:amirphp7/eskimi-task.git
 ```
 ```
-$ cd taskmanagement
+$ cd eskimi-task
 ```
 ```
 $ mv .env.example .env
 ```
+```
+$ php artisan key:generate
+```
+
 **Change configuration according your need and create Database**
 ```
 $ composer install
