@@ -10,6 +10,10 @@ interface Repository
 
     function find($id);
 
+	function group(array $attributes);
+
+	function sum(array $attributes);
+
 	function create(array $attributes);
 
 	function update($id, array $attributes);

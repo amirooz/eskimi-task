@@ -38,7 +38,29 @@ trait Traits
         return  $this->model->where($attributes);
     }
 
+    /**
+     * Get model by group attributes.
+     *
+     * @param array $attributes
+     *
+     * @return App\model
+     */
+    public function group(array $attributes)
+    {
+      return $this->model->groupBy($attributes);
+    }
 
+    /**
+     * Sum model by attributes.
+     *
+     * @param array $attributes
+     *
+     * @return App\model
+     */
+    public function sum(array $attributes)
+    {
+      return $this->model->sum($attributes);
+    }
 
   	/**
   	 * Create a new model.

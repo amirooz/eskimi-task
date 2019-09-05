@@ -8,7 +8,6 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\TaskRepository;
 use App\Http\Controllers\Projects\GuzzleHttpController;
-use Illuminate\Support\Facades\DB;
 use App\Http\Requests\TaskRequest;
 use GuzzleHttp\Client;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -62,21 +61,22 @@ class TaskController extends Controller
     public function store(TaskRequest $request)
     {
         $task = $this->task->create($request->except(['id']));
-        $where['parent_id'] = [$request->parent_id];
-        $points = DB::table('tasks')->where($where)->sum('points');
-        $progress = DB::table('tasks')->where($where)->sum('progress');
+        $where_pid['parent_id'] = [$request->parent_id];
+        $where_id['id'] = [$request->parent_id];
+        $points = $this->task->where($where_pid)->sum('points');
+        $progress = $this->task->where($where_pid)->sum('progress');
         if($points == $progress)
         {
-            DB::table('tasks')
-                ->where('id', $request->parent_id)
+            $this->task
+                ->where($where_id)
                 ->update([
                     'points'    => $points,
                     'progress'  => $progress,
                     'is_done'   => 1
                 ]);
         } else {
-            DB::table('tasks')
-                ->where('id', $request->parent_id)
+            $this->task
+                ->where($where_id)
                 ->update([
                     'points'    => $points,
                     'progress'  => $progress,
@@ -124,20 +124,22 @@ class TaskController extends Controller
     public function update(TaskRequest $request, $id)
     {
         $task = $this->task->update($id, $request->except(['id']));
-        $points = DB::table('tasks')->where('parent_id', $request->parent_id)->sum('points');
-        $progress = DB::table('tasks')->where('parent_id', $request->parent_id)->sum('progress');
+        $where_pid['parent_id'] = [$request->parent_id];
+        $where_id['id'] = [$request->parent_id];
+        $points = $this->task->where($where_pid)->sum('points');
+        $progress = $this->task->where($where_pid)->sum('progress');
         if($points == $progress)
         {
-            DB::table('tasks')
-                ->where('id', $request->parent_id)
+            $this->task
+                ->where($where_id)
                 ->update([
                     'points'    => $points,
                     'progress'  => $progress,
                     'is_done'   => 1
                 ]);
         } else {
-            DB::table('tasks')
-                ->where('id', $request->parent_id)
+            $this->task
+                ->where($where_id)
                 ->update([
                     'points'    => $points,
                     'progress'  => $progress,
